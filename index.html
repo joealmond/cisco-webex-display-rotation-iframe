@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+  style="
+    background-color: #0e2951;
+    display: flex;
+    flex-direction: column;
+    width: 101vw;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+  "
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cisco Live View iFrame</title>
+  </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      transform: rotate(90deg);
+      overflow: hidden;
+    "
+  >
+    <iframe
+      frameborder="0"
+      style="
+        width: 112vh;
+        height: 112vw;
+        zoom: 90%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      "
+      src="https://socio.live/MTg1OTA=?token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InR5cGUiOiJMaXZlRGlzcGxheSIsImV2ZW50X2lkIjoxODU5MH0sImlzcyI6Imh0dHBzOi8vc29jaW8uZXZlbnRzIiwiaWF0IjoxNjYzMTQ2ODg1fQ.OvHeUZu2mgo7IoQvaDHN-4lH8UgdAnIJoiBE_TTBsaM"
+    ></iframe>
+  </body>
+  <script>
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (e.key === "Enter") {
+          toggleFullScreen();
+        }
+      },
+      false
+    );
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+</html>
