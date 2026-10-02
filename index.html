@@ -1,63 +1,22 @@
-<!DOCTYPE html>
-<html
-  style="
-    background-color: #0e2951;
-    display: flex;
-    flex-direction: column;
-    width: 101vw;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  "
-  lang="en"
->
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cisco Live View iFrame</title>
-  </head>
-  <body
-    style="
-      display: flex;
-      flex-direction: row;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      transform: rotate(90deg);
-      overflow: hidden;
-    "
-  >
-    <iframe
-      frameborder="0"
-      style="
-        width: 112vh;
-        height: 112vw;
-        zoom: 90%;
-        margin: 0;
-        padding: 0;
-        border: 0;
-      "
-      src="https://go.socio.events/20e0y"
-    ></iframe>
-  </body>
-  <script>
-    document.addEventListener(
-      "keydown",
-      (e) => {
-        if (e.key === "Enter") {
-          toggleFullScreen();
-        }
-      },
-      false
-    );
-    function toggleFullScreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    }
-  </script>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer"><title>Rotated Live Display</title>
+<style>html,body{margin:0;overflow:hidden;background:#0e2951}
+iframe{position:absolute;top:50%;left:50%;width:100vh;height:100vw;border:0;
+transform:translate(-50%,-50%) rotate(90deg)}</style></head><body>
+<iframe title="Rotated Live Display" src="app.html?@QUERY@"></iframe>
+<script>
+// Choose ?rotation=270 if the physical screen is mounted the other way.
+const frame = document.querySelector('iframe');
+if (new URLSearchParams(location.search).get('rotation') === '270') {
+  frame.style.transform = 'translate(-50%,-50%) rotate(270deg)';
+}
+// Fullscreen the wrapper to preserve rotation, including when focus is in the app.
+function fullscreen(event) {
+  if (event.key === 'Enter' && !document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(console.error);
+  }
+}
+document.addEventListener('keydown', fullscreen);
+frame.addEventListener('load', () => frame.contentDocument.addEventListener('keydown', fullscreen));
+</script></body></html>
