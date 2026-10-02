@@ -30,5 +30,8 @@ change. Rebuild and test again when Webex updates the app or display token.
 
 Verified locally in signed-in Chrome: live schedule data, automatic page
 cycling, map rendering, and a 90-degree frame covering a 1920×1080 viewport.
-Hosted GitHub Pages and the physical signage player still need verification.
+PASS on GitHub Pages (2 October 2026): build/deployment, live schedule data,
+same-origin app loading, and full-viewport 90°/270° rotation; no console errors
+captured in the default view. The original Pages URL is preserved.
+NOT RUN: physical signage player and extended operation/reconnect testing.
 This is an unsupported experiment; Webex API/CORS changes can break it.
